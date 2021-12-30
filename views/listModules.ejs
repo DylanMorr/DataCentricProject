@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Modules</h1><br>
+    
+    <!-- Create a table to display data -->
+    <table>
+        <tr>
+            <!-- Table Headers -->
+            <th>Module ID</th>
+            <th>Name</th>
+            <th>Credits</th>
+            <th>Update</th>
+            <th>Students</th>
+        </tr>
+        <!-- Display using a forEach -->
+        <% modules.forEach((module) => { %>
+            <tr>
+                <!-- Display data here -->
+                <td><%= module.mid %></td>
+                <td><%= module.name %></td>
+                <td><%= module.credits %></td>
+                <!-- Link to update a module -->
+                <td><a href="http://localhost:3000/module/edit/<%= module.mid %>">Update</a></td>
+                <!-- Link to list all students studying a module -->
+                <td><a href="http://localhost:3000/module/students/<%= module.mid %>">List</a></td>
+            </tr>
+        <% }) %>
+    </table>
+
+    <!-- Home button -->
+    <br><button onclick="window.location.href='/'">Home</button>
+</body>
+
+</html>

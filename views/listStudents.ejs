@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Students</h1>
+    
+    <!-- Button to add a new student -->
+    <button onclick="window.location.href='/addStudent'">Add Student</button><br><br>
+    
+    <!-- Create a table to display data -->
+    <table>
+        <tr>
+            <!-- Table Headers -->
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>GPA</th>
+            <th>Action</th>
+        </tr>
+        <!-- Display using a forEach -->
+        <% students.forEach((student) => { %>
+            <tr>
+                 <!-- Display data here -->
+                <td><%= student.sid %></td>
+                <td><%= student.name %></td>
+                <td><%= student.gpa %></td>
+                <!-- Link to delete a student -->
+                <td><a href="http://localhost:3000/students/delete/<%= student.sid %>">Delete</a></td>
+            </tr>
+        <% }) %>
+    </table>
+
+    <!-- Home button -->
+    <br><button onclick="window.location.href='/'">Home</button>
+</body>
+
+</html>

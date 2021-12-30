@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <h2>Edit Module</h2>
+
+    <!-- Display error messages for each error -->
+    <% if (errors != undefined) { %>
+        <ul>
+            <% errors.forEach((error) => { %>
+                <li><%= error.msg %></li>
+            <% }) %>
+        </ul>
+    <% } %>
+    
+    <!-- for loop to display information in form when page is opened-->
+    <% for (var i = 0; i < module.length; i++){ %>
+        <!-- Create a edit module form with a post method-->
+        <form action="/module/edit/<%= module[i].mid %>" method="post">
+                <label>Module ID:</label><br>
+                <input type="text" name="mid" disabled value="<%= module[i].mid %>"><br>
+                <label>Name:</label><br>
+                <input type="text" name="name" value="<%= module[i].name %>"><br>
+                <label>Credits:</label><br>
+                <input type="number" name="credits" value="<%= module[i].credits %>"><br><br>
+                <input type="submit" value="Add">
+        </form>
+    <% } %>
+
+    <!-- Home button -->
+    <br><br><button onclick="window.location.href='/listModules'">Home</button>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h2>Add Student</h2>
+
+    <!-- Display error messages for each error -->
+    <% if (errors != undefined) { %>
+        <ul>
+            <% errors.forEach((error) => { %>
+                <li><%= error.msg %></li>
+            <% }) %>
+        </ul>
+    <% } %>
+    
+    <!-- Seperate display for duplication error -->
+    <% if (dupe != "") { %>
+        <ul>
+            <li><%= dupe %></li>
+        </ul>
+    <% } %>
+
+    <!-- Create a form to add a Student with a post method-->
+    <form action="/addStudent" method="post">
+        <label>Student ID:</label><br>
+        <input type="text" name="sid" value="<%= sid %>"><br>
+        <label>Name:</label><br>
+        <input type="text" name="name" value="<%= name %>"><br>
+        <label>GPA:</label><br>
+        <input type="number" step="0.1" name="gpa" value="<%= gpa %>"><br><br>
+        <input type="submit" value="Add"><br><br><br>
+    </form>
+
+    <!-- Home button -->
+    <button onclick="window.location.href='/listStudents'">Home</button>
+</body>
+
+</html>

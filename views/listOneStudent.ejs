@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Students Studying <%= mid %></h1><br>
+    
+    <!-- Create a table to display data -->
+    <table>
+        <tr>
+            <!-- Table Headers -->
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>GPA</th>
+        </tr>
+        <!-- Display using a forEach -->
+        <% students.forEach((student) => { %>
+            <tr>
+                <!-- Display data here -->
+                <td><%= student.sid %></td>
+                <td><%= student.name %></td>
+                <td><%= student.gpa %></td>
+            </tr>
+        <% }) %>
+    </table>
+
+    <!-- Home button -->
+    <br><button onclick="window.location.href='/listModules'">Home</button>
+</body>
+
+</html>
